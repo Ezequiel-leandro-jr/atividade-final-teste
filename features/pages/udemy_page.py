@@ -3,22 +3,18 @@ from features.pages.base_page import BasePage
 from selenium.webdriver.common.keys import Keys
 
 class UdemyPage(BasePage):
-    BOTAO_GLOBO = (By.CSS_SELECTOR, '.ud-btn.ud-btn-medium')
-    BOTAO_INGLES = (By.CSS_SELECTOR, '.ud-btn.ud-btn-medium.ud-btn-ghost.ud-text-md')
-    BOTAO_REGISTRO = (By.CSS_SELECTOR, 'a.ud-btn.ud-btn-medium.ud-btn-primary.ud-heading-sm')
-    BOTAO_BUSINESS = (By.CSS_SELECTOR, '#u34-popper-trigger--8')
+    CAMPO_PESQUISA = (By.CSS_SELECTOR, '#u369-search-form-autocomplete--3')
+    RESULTADO_TEXTO = (By.CSS_SELECTOR, 'main-content-anchor > header > h1')
+    #BOTAO_BUSINESS = (By.CSS_SELECTOR, '#u34-popper-trigger--8')
 
-    def clicar_botao_globo(self):
-        botao_globo = self.find_element(*self.BOTAO_GLOBO)
-        botao_globo.click()
-
-    def clicar_botao_ingles(self):
-        botao_ingles = self.find_element(*self.BOTAO_INGLES)
-        botao_ingles.click()
+    def escrever_texto_campo_pesquisa(self):
+        campo_pesquisa = self.find_element(*self.CAMPO_PESQUISA)
+        campo_pesquisa.send_keys('gherkin')
+        campo_pesquisa.send_keys(Keys.ENTER)
     
-    def recuperar_texto_botao_registro(self):
-        self.find_element(*self.BOTAO_REGISTRO)
-        return self.get_element_text(self.find_element(*self.BOTAO_REGISTRO))
+    def recuperar_texto_resultado(self):
+        self.find_element(*self.RESULTADO_TEXTO)
+        return self.get_element_text(self.find_element(*self.RESULTADO_TEXTO))
     
     def clicar_botao_business(self):
         botao_business = self.find_element(*self.BOTAO_BUSINESS)
