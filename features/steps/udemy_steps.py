@@ -15,7 +15,7 @@ def step_impl(context):
     time.sleep(2)
 
 
-@when(u'clicar no botão “Español”')
+@when(u'clicar no botão de lingua espanhola')
 def step_impl(context):
     context.udemy_page.clicar_botao_espanhol()
     time.sleep(5)
