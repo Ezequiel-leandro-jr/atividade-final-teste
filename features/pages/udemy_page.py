@@ -5,7 +5,7 @@ from selenium.webdriver.common.keys import Keys
 class UdemyPage(BasePage):
     BOTAO_GLOBO = (By.CSS_SELECTOR, '.ud-btn.ud-btn-medium')
     BOTAO_INGLES = (By.CSS_SELECTOR, '.ud-btn.ud-btn-medium.ud-btn-ghost.ud-text-md')
-    BOTAO_REGISTRO = (By.CSS_SELECTOR, '#div:nth-child(9) > a > span')
+    BOTAO_REGISTRO = (By.CSS_SELECTOR, 'a.ud-btn.ud-btn-medium.ud-btn-primary.ud-heading-sm')
     BOTAO_BUSINESS = (By.CSS_SELECTOR, '#u34-popper-trigger--8')
 
     def clicar_botao_globo(self):
