@@ -23,7 +23,7 @@ def step_impl(context):
 @then(u'a tela inicial deve atualizar em ingles')
 def step_impl(context):
     texto_obtido = context.udemy_page.recuperar_texto_botao_registro()
-    assert texto_obtido == 'Regístrate', f"O texto obtido '{texto_obtido}' foi diferente do texto esperado 'Regístrate'"
+    assert texto_obtido == 'Sign Up', f"O texto obtido '{texto_obtido}' foi diferente do texto esperado 'Sign Up'"
 
 # endregion
 
