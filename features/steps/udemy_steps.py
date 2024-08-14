@@ -15,12 +15,12 @@ def step_impl(context):
     time.sleep(2)
 
 
-@when(u'clicar no botão de lingua espanhola')
+@when(u'clicar no botão de lingua inglesa')
 def step_impl(context):
-    context.udemy_page.clicar_botao_espanhol()
+    context.udemy_page.clicar_botao_ingles()
     time.sleep(5)
 
-@then(u'a tela inicial deve atualizar em espanhol')
+@then(u'a tela inicial deve atualizar em ingles')
 def step_impl(context):
     texto_obtido = context.udemy_page.recuperar_texto_botao_registro()
     assert texto_obtido == 'Regístrate', f"O texto obtido '{texto_obtido}' foi diferente do texto esperado 'Regístrate'"

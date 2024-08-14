@@ -4,8 +4,8 @@ Feature: Funcionalidades da pagina inicial
         Scenario: teste de mudança de idioma do site
             Given que o usuário está na tela inicial
              When ele clicar no botão do globo
-             When clicar no botão de lingua espanhola
-             Then a tela inicial deve atualizar em espanhol
+             When clicar no botão de lingua inglesa
+             Then a tela inicial deve atualizar em ingles
 
         @TesteSimples
         Scenario: verificar acesso a página de inscrição do Udemy Business

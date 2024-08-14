@@ -3,8 +3,8 @@ from features.pages.base_page import BasePage
 from selenium.webdriver.common.keys import Keys
 
 class UdemyPage(BasePage):
-    BOTAO_GLOBO = (By.CSS_SELECTOR, '#div:nth-child(10) > button')
-    BOTAO_ESPANHOL = (By.CSS_SELECTOR, '#a:nth-child(3) > span')
+    BOTAO_GLOBO = (By.CSS_SELECTOR, '.ud-btn.ud-btn-medium')
+    BOTAO_INGLES = (By.CSS_SELECTOR, '.ud-btn.ud-btn-medium.ud-btn-ghost.ud-text-md')
     BOTAO_REGISTRO = (By.CSS_SELECTOR, '#div:nth-child(9) > a > span')
     BOTAO_BUSINESS = (By.CSS_SELECTOR, '#u34-popper-trigger--8')
 
@@ -12,9 +12,9 @@ class UdemyPage(BasePage):
         botao_globo = self.find_element(*self.BOTAO_GLOBO)
         botao_globo.click()
 
-    def clicar_botao_espanhol(self):
-        botao_espanhol = self.find_element(*self.BOTAO_ESPANHOL)
-        botao_espanhol.click()
+    def clicar_botao_ingles(self):
+        botao_ingles = self.find_element(*self.BOTAO_INGLES)
+        botao_ingles.click()
     
     def recuperar_texto_botao_registro(self):
         self.find_element(*self.BOTAO_REGISTRO)
