@@ -11,10 +11,10 @@ Feature: Funcionalidades do menu superior
         
         @TesteMenuLearning
         Scenario: Testando a pesquisa do menu Learning
-            Given que o usuário está na página inicial
+            Given que o usuário está no início
              When clicar no menu Learning
              When digitar Power Bi e clicar ENTER
-             When clicar no resultado da busca
+             When clicar no resultado
              When clicar no botão PLAY
              Then o vídeo é reproduzido
     

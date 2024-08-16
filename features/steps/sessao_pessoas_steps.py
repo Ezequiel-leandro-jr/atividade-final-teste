@@ -39,7 +39,7 @@ def step_impl(context):
 
 
 # region Testando a pesquisa do menu Learning
-@given(u'que o usuário está na página inicial')
+@given(u'que o usuário está no início')
 def step_impl(context):
     context.driver.get("https://br.linkedin.com")
     context.linkedin_page = SessaoPessoasPage(context.driver)
@@ -55,7 +55,7 @@ def step_impl(context):
     context.linkedin_page.digitar_pesquisa()
     time.sleep(2)
 
-@when(u'clicar no resultado da busca')
+@when(u'clicar no resultado')
 def step_impl(context):
     context.linkedin_page.clicar_curso()
     time.sleep(5)
