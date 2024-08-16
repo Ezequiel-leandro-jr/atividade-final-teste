@@ -5,7 +5,7 @@ import time
 # region Testar a mudança do idioma
 @given(u'que o usuário está na sessão Pessoas')
 def step_impl(context):
-    context.driver.get("https://br.linkedin.com/pub/dir/+/+?trk=public_profile_guest_nav_menu_people")
+    context.driver.get("https://br.linkedin.com")
     context.linkedin_page = SessaoPessoasPage(context.driver)
     time.sleep(50)
 
