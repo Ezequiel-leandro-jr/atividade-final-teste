@@ -13,7 +13,7 @@ class SessaoPessoasPage(BasePage):
     BOTAO_LEARNING = (By.CSS_SELECTOR, "a[data-tracking-control-name='guest_homepage-basic_guest_nav_menu_learning']")
     INPUT_LEARNING = (By.CSS_SELECTOR, 'input[aria-label="Pesquise competências, tópicos ou software"]')
     CLICAR_CURSO = (By.CSS_SELECTOR, 'a.base-card__full-link')
-     
+    VIDEO = (By.CSS_SELECTOR, 'span.top-card__preview-cta')
     
     
     
@@ -52,7 +52,11 @@ class SessaoPessoasPage(BasePage):
     
     def clicar_curso(self):
         link_curso = self.find_element(*self.CLICAR_CURSO)
-        link_curso.click() 
+        link_curso.click()
+    
+    def reproduzir_video(self):
+        video = self.find_element(*self.VIDEO)
+        video.click()
         
     
     #def recuperar_texto_cadastro(self):
