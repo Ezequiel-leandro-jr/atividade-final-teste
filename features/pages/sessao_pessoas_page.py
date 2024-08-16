@@ -14,6 +14,8 @@ class SessaoPessoasPage(BasePage):
     INPUT_LEARNING = (By.CSS_SELECTOR, 'input[aria-label="Pesquise competências, tópicos ou software"]')
     CLICAR_CURSO = (By.CSS_SELECTOR, 'a.base-card__full-link')
     VIDEO = (By.CSS_SELECTOR, 'span.top-card__preview-cta')
+    ELEMENTO_VIDEO = (By.ID, 'vjs_video_3_html5_api')
+    
     
     
     
@@ -57,6 +59,10 @@ class SessaoPessoasPage(BasePage):
     def reproduzir_video(self):
         video = self.find_element(*self.VIDEO)
         video.click()
+    
+    def retornar_video(self):
+        elemento_video = self.find_element(*self.ELEMENTO_VIDEO)
+        return elemento_video
         
     
     #def recuperar_texto_cadastro(self):
