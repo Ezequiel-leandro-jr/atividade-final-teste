@@ -2,27 +2,37 @@ from behave import given, when, then
 from features.pages.sessao_pessoas_page import SessaoPessoasPage
 import time
 
-# region Testar a mudança do idioma
-@given(u'que o usuário está na sessão Pessoas')
+# region Testando o acesso ao perfil pesquisado
+@given(u'que o usuário está na página inicial')
 def step_impl(context):
     context.driver.get("https://br.linkedin.com")
     context.linkedin_page = SessaoPessoasPage(context.driver)
-    time.sleep(50)
-
-@when(u'clicar no dropdown idioma')
-def step_impl(context):
-    context.linkedin_page.clicar_botao_idioma()
-    time.sleep(20)
-
-@when(u'clicar na opção de ingles')
-#def step_impl(context):
-#    context.linkedin_page.clicar_opcao_english()
-#    time.sleep(10)
-
-@then(u'a página mudará para o idioma selecionado')
-def step_impl(context):
-    texto_obtido = context.linkedin_page.retornar_texto_botao_english()
-    assert texto_obtido == 'Sign in', f"O texto obtido '{texto_obtido}' foi diferente do texto esperado 'Sign in'"
     time.sleep(10)
+
+@when(u'clicar no menu Pessoas')
+def step_impl(context):
+    context.linkedin_page.clicar_botao_pessoas()
+    time.sleep(5)
+
+@when(u'digitar o nome')
+def step_impl(context):
+    context.linkedin_page.digitar_nome()
+    time.sleep(2)
+
+@when(u'digitar o sobrenome e clicar ENTER')
+def step_impl(context):
+    context.linkedin_page.digitar_sobrenome()
+    time.sleep(5)
+
+@when(u'clicar no resultado da busca')
+def step_impl(context):
+    context.linkedin_page.clicar_perfil()
+    time.sleep(5)
+
+@then(u'o modal de login/cadastro para ver o perfil completo aparece')
+def step_impl(context):
+    elemento_modal = context.linkedin_page.elemento_modal()
+    assert elemento_modal
+    time.sleep(5)
     
 # endregion

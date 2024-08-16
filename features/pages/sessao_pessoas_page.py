@@ -4,24 +4,57 @@ from selenium.webdriver.common.keys import Keys
 import time
 
 class SessaoPessoasPage(BasePage):
-    BOTAO_IDIOMA = (By.CSS_SELECTOR, "button.language-selector__button[aria-expanded='false']")
-    BOTAO_ENGLISH = (By.CSS_SELECTOR, "button[aria-label='Română (Romeno)']")
-    BOTAO_TRADUZIDO = (By.CSS_SELECTOR, "button.btn__primary--large.from__button--floating")
+    BOTAO_PESSOAS = (By.CSS_SELECTOR, "a[data-tracking-control-name='guest_homepage-basic_guest_nav_menu_people']")
+    INPUT_NOME = (By.CSS_SELECTOR, "input[aria-label='Nome']")
+    INPUT_SOBRENOME = (By.CSS_SELECTOR, "input[aria-label='Sobrenome']")
+    CLICAR_PERFIL = (By.CSS_SELECTOR, "a[href='https://br.linkedin.com/in/ezequiel-leandro-jr?trk=people-guest_people_search-card']")
+    MODAL = (By.CSS_SELECTOR, "div.modal__overlay")
     
-    def clicar_botao_idioma(self):
-        botao_idioma = self.find_element(*self.BOTAO_IDIOMA)
-        botao_idioma.click()
+    BOTAO_LEARNING = (By.CSS_SELECTOR, "a[data-tracking-control-name='guest_homepage-basic_guest_nav_menu_learning']")
+    INPUT_LEARNING = (By.CSS_SELECTOR, 'input[aria-label="Pesquise competências, tópicos ou software"]')
+    CLICAR_CURSO = (By.CSS_SELECTOR, 'a.base-card__full-link')
+     
     
-    def clicar_opcao_english(self):
-        botao_english = self.find_element(*self.BOTAO_ENGLISH)
-        botao_english.click()
     
-    def retornar_texto_botao_english(self):
-        botao_traduzido = self.find_element(*self.BOTAO_TRADUZIDO)
-        texto_botao = botao_traduzido.text
-        return texto_botao
+    
+    
+    def clicar_botao_pessoas(self):
+        botao_pessoas = self.find_element(*self.BOTAO_PESSOAS)
+        botao_pessoas.click()
+    
+    def digitar_nome(self):
+        input_nome = self.find_element(*self.INPUT_NOME)
+        input_nome.send_keys("Ezequiel")
+    
+    def digitar_sobrenome(self):
+        input_sobrenome = self.find_element(*self.INPUT_SOBRENOME)
+        input_sobrenome.send_keys("Leandro Jr")
+        input_sobrenome.send_keys(Keys.ENTER)
+    
+    def clicar_perfil(self):
+        link_perfil = self.find_element(*self.CLICAR_PERFIL)
+        link_perfil.click()
+    
+    def elemento_modal(self):
+        modal = self.find_element(*self.MODAL)
+        return modal
+    
+    #####################################################################
+    
+    def clicar_botao_learning(self):
+        botao_learning = self.find_element(*self.BOTAO_LEARNING)
+        botao_learning.click()
+    
+    def digitar_pesquisa(self):
+        input_learning = self.find_element(*self.INPUT_LEARNING)
+        input_learning.send_keys("Power BI")
+        input_learning.send_keys(Keys.ENTER)
+    
+    def clicar_curso(self):
+        link_curso = self.find_element(*self.CLICAR_CURSO)
+        link_curso.click() 
         
-        
+    
     #def recuperar_texto_cadastro(self):
         #botao_cadastro = self.get_element_text(self.find_element(*self.BOTAO_CADASTRO))
         #return botao_cadastro
